@@ -1,0 +1,66 @@
+[
+  {
+    "id": "KB001",
+    "title": "GlobalProtect / AnyConnect VPN Disconnection & Authentication Issues",
+    "category": "Network & Security",
+    "tags": ["vpn", "network", "remote", "authentication", "disconnect"],
+    "summary": "Step-by-step guide to diagnose and fix frequent VPN disconnections, invalid certificate errors, and MFA prompt loops.",
+    "content": "Symptoms:\n- VPN disconnects every few minutes or fails to initialize authentication tunnel.\n- Error message: 'Gateway not reachable' or 'Certificate validation failed'.\n\nTroubleshooting Steps:\n1. Verify local internet connectivity by pinging 8.8.8.8 and company portal.\n2. Open VPN client settings, select 'Refresh Connection', and reconnect.\n3. Clear DNS cache: Run Command Prompt as Admin and execute `ipconfig /flushdns`.\n4. Reset Network Adapter: Go to Settings > Network & Internet > Advanced network settings > Network reset.\n5. If MFA is stuck, re-authenticate via the Authenticator app or request MFA token reset.\n6. Check firewall rules to ensure UDP ports 4500 and 500 are allowed."
+  },
+  {
+    "id": "KB002",
+    "title": "Windows Blue Screen of Death (BSOD) & Stop Code Diagnosis",
+    "category": "Hardware & OS",
+    "tags": ["bsod", "crash", "windows", "hardware", "blue screen"],
+    "summary": "Resolving system crashes, dump file analysis, and common BSOD stop codes like CRITICAL_PROCESS_DIED and DRIVER_IRQL_NOT_LESS_OR_EQUAL.",
+    "content": "Symptoms:\n- System crashes unexpectedly showing a blue screen with a stop code and restarts.\n\nTroubleshooting Steps:\n1. Note the specific stop code (e.g., PAGE_FAULT_IN_NONPAGED_AREA, DRIVER_IRQL_NOT_LESS_OR_EQUAL).\n2. Boot Windows into Safe Mode (Hold Shift while clicking Restart > Troubleshoot > Startup Settings > Safe Mode).\n3. Check recent software or driver updates. Uninstall recently installed display or graphics drivers via Device Manager.\n4. System File Inspection: Run `sfc /scannow` and `DISM /Online /Cleanup-Image /RestoreHealth` in Admin CMD.\n5. Memory Health Test: Run `mdsched.exe` (Windows Memory Diagnostic) to check RAM integrity.\n6. Check system temperature and disk health using diagnostic tools. If hardware failure is suspected, open an urgent hardware ticket."
+  },
+  {
+    "id": "KB003",
+    "title": "Wi-Fi Connectivity, IP Conflict & DNS Resolution Errors",
+    "category": "Network & Security",
+    "tags": ["wifi", "dns", "ip address", "internet", "no connection"],
+    "summary": "How to resolve 'No Internet, Secured', DNS probe finished errors, and wireless network dropping.",
+    "content": "Symptoms:\n- Laptop connected to Wi-Fi but shows 'No Internet Access' or browser shows DNS failure.\n\nTroubleshooting Steps:\n1. Toggle Airplane mode ON for 5 seconds, then OFF.\n2. Forget the Wi-Fi network and reconnect using network credentials.\n3. Release and Renew IP Address:\n   - Open CMD as Admin.\n   - Execute `ipconfig /release` followed by `ipconfig /renew`.\n4. Change DNS servers to Google DNS (8.8.8.8 / 8.8.4.4) or Cloudflare DNS (1.1.1.1) in IPv4 properties.\n5. Restart Wireless Network Service: Run `net stop wlansvc` and `net start wlansvc` in Admin CMD."
+  },
+  {
+    "id": "KB004",
+    "title": "Microsoft Outlook Synchronization & Profile Corruption Fix",
+    "category": "Software & Apps",
+    "tags": ["outlook", "email", "sync", "office365", "m365"],
+    "summary": "Fix Outlook stuck on 'Disconnected', OST file corruption, and email sending failure.",
+    "content": "Symptoms:\n- Emails not sending/receiving, Outlook stuck on 'Updating Inbox' or 'Disconnected'.\n\nTroubleshooting Steps:\n1. Verify Outlook status bar at the bottom right. If Offline, switch to 'Send / Receive' tab and click 'Work Offline' to toggle online mode.\n2. Run Outlook in Safe Mode: Press `Win + R`, type `outlook.exe /safe` and press Enter.\n3. Repair Office Installation: Control Panel > Programs and Features > Select Microsoft 365 > Click Change > Quick Repair.\n4. Rebuild Outlook Profile: Control Panel > Mail > Show Profiles > Add new profile and set as default.\n5. Compact / Repair OST file: Locate OST file in `%localappdata%\\Microsoft\\Outlook` and run `SCANPST.EXE`."
+  },
+  {
+    "id": "KB005",
+    "title": "Account Lockout & Self-Service Password Reset (SSPR) Workflow",
+    "category": "Identity & Access Management",
+    "tags": ["password", "lockout", "account", "login", "reset", "active directory"],
+    "summary": "Instructions for unlocking Active Directory domain accounts and completing self-service password reset.",
+    "content": "Symptoms:\n- 'Your account has been locked out. Please contact your administrator' message on login.\n\nTroubleshooting Steps:\n1. Wait 15 minutes for automatic lockout timer expiration (if enabled by organization policy).\n2. Use the Self-Service Password Reset (SSPR) portal at https://passwordreset.microsoftonline.com.\n3. Trigger automated account verification via IT Helpdesk Agent tool: command `trigger_password_reset` with username.\n4. Disconnect phone/mobile devices from corporate Wi-Fi temporarily to stop outdated saved passwords from triggering re-lockouts.\n5. If SSPR fails, contact IT service desk with Employee ID for identity verification."
+  },
+  {
+    "id": "KB006",
+    "title": "High CPU / Memory Usage & System Performance Optimization",
+    "category": "System Diagnostics",
+    "tags": ["performance", "cpu", "memory", "ram", "slow", "sluggish"],
+    "summary": "Diagnosing background processes consuming 100% CPU/RAM and optimizing Windows workstation speed.",
+    "content": "Symptoms:\n- Workstation freezing, fans spinning loud, slow response time when opening apps.\n\nTroubleshooting Steps:\n1. Open Task Manager (`Ctrl + Shift + Esc`) and sort processes by CPU and Memory usage.\n2. Identify rogue processes (e.g., SearchIndexer, Windows Update loop, hung browser sub-processes).\n3. End high-resource non-essential background processes.\n4. Disable unnecessary Startup programs under Task Manager > Startup tab.\n5. Run system diagnostic check to inspect total available physical memory and free disk space.\n6. Clear temporary files: Open Run (`Win + R`), type `%temp%` and delete temporary files."
+  },
+  {
+    "id": "KB007",
+    "title": "Network Printer Offline & Print Spooler Service Reset",
+    "category": "Hardware & OS",
+    "tags": ["printer", "print spooler", "paper jam", "offline", "hardware"],
+    "summary": "Fixing printer offline errors, clearing print queue jams, and restarting the Print Spooler service.",
+    "content": "Symptoms:\n- Print jobs stuck in queue with status 'Error - Printing' or printer shows 'Offline'.\n\nTroubleshooting Steps:\n1. Verify physical connection / IP connection of printer. Ping printer IP address.\n2. Restart Print Spooler Service:\n   - Run CMD as Administrator.\n   - Type `net stop spooler` and press Enter.\n   - Delete queue files in `C:\\Windows\\System32\\spool\\PRINTERS`.\n   - Type `net start spooler` and press Enter.\n3. Check Windows Settings > Devices > Printers & Scanners > Open Queue > Printer > Uncheck 'Use Printer Offline'.\n4. Re-add printer using printer IP address or hostname."
+  },
+  {
+    "id": "KB008",
+    "title": "Local Administrative Rights & Software Installation Policy",
+    "category": "Identity & Access Management",
+    "tags": ["admin", "permissions", "install", "uac", "software"],
+    "summary": "Guidelines and request procedures for software installations requiring elevated permissions.",
+    "content": "Symptoms:\n- Prompted for administrator credentials (UAC prompt) when installing company-approved software.\n\nTroubleshooting Steps:\n1. Check if the required software is available in Company Portal / Software Center (does not require admin password).\n2. If installing standard utilities (e.g., VS Code, Git, Docker, Node.js), verify if user-scoped installers are available.\n3. If local admin rights are required for development or system administration, submit a Temporary Admin Request ticket with business justification.\n4. All unauthorized executable files (.exe / .msi) are subject to automated endpoint protection scanning."
+  }
+]

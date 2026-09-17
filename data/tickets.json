@@ -1,0 +1,46 @@
+[
+  {
+    "ticket_id": "INC-1001",
+    "user": "alice@company.com",
+    "subject": "VPN Disconnecting continuously during remote work",
+    "category": "Network & Security",
+    "priority": "High",
+    "status": "In Progress",
+    "description": "User reports GlobalProtect VPN drops connection every 5-10 minutes.",
+    "created_at": "2026-09-17 09:30:00",
+    "resolution_notes": "Diagnostic run completed. Suggested DNS flush and network adapter reset."
+  },
+  {
+    "ticket_id": "INC-1002",
+    "user": "bob@company.com",
+    "subject": "Outlook stuck on updating inbox",
+    "category": "Software & Apps",
+    "priority": "Medium",
+    "status": "Open",
+    "description": "User unable to send or receive emails since morning.",
+    "created_at": "2026-09-17 10:15:00",
+    "resolution_notes": ""
+  },
+  {
+    "ticket_id": "INC-1003",
+    "user": "charlie@company.com",
+    "subject": "Account Lockout Request",
+    "category": "Identity & Access Management",
+    "priority": "Critical",
+    "status": "Resolved",
+    "description": "User locked out after 3 failed password attempts.",
+    "created_at": "2026-09-16 16:45:00",
+    "resolution_notes": "Automated SSPR reset link issued. Account unlocked."
+  },
+  {
+    "ticket_id": "INC-1004",
+    "user": "test.user@company.com",
+    "subject": "Test Unit Issue",
+    "category": "General IT",
+    "priority": "Medium",
+    "status": "Open",
+    "description": "Automated unit test ticket creation.",
+    "created_at": "2026-09-17 11:37:33",
+    "resolution_notes": ""
+  }
+]
